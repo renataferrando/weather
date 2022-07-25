@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+Apis utilizadas:
+-GeoDB Cities API (https://rapidapi.com) para obtener la data de las ciudades con el prefijo ingresado en el campo de búsqueda (componente Search).
+
+- Open Weather API ( https://openweathermap.org/api) para obtener la data del clima pasando las coordenadas obtenidas del listado de ciudades desplegado por la consulta a la api Geo DB (Si bien el nombre de la localidad puede ser diferente, las coordenadas son las mismas). Se muestra al usuario el nombre de la ciudad dado por la api Open Weather). Se utilizan dos endpoints diferentes, uno para el clima actual y otro para el extendido.
+  La Api open weather no ofrece de manera gratuita el forecast diario. Sí ofrece el forecast para los próximos 5 días cada 3 horas. Para resumir los datos obtenidos, en la app se muestra (en el pronóstico diario) la temperatura y descripción del clima estimada para las 12pm de cada día.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/weather" element={<Home />} />
         </Routes>
       </Layout>
     </BrowserRouter>
