@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+    .main {
+        width: 700px;
+        padding: 40px;
+        margin: 80px;
+        background-color: rgba(0,0,0,.2);
+        border-radius: 8px;
+     
+    }
+    @media screen and (max-width: 768px) {
+        .main {
+            max-width: 250px;
+            margin: 40px 10px;
+        }
+    }
+}

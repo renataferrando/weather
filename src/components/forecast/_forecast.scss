@@ -1,0 +1,43 @@
+.forecast {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.5s ease-in-out ;
+   @media screen and (max-width: 768px){
+    max-width: 100%;
+    overflow-x: scroll;
+   }
+   &.--show {
+       max-height: 600px;
+       
+   }
+   .hourly {
+    display: flex;
+    
+    .hourly-boxes {
+        display: flex;
+        flex-direction: column;
+        min-width: 80px;
+        padding: 0 20px;
+    }
+    & div:not(:last-child) {
+        border-right: solid 1px #ccc;
+      
+    }
+   }
+   .daily {
+    display: flex;
+    justify-content: space-between;
+    .daily-boxes {
+        display: flex;
+        flex-direction: column;
+        min-width: 80px;
+        padding: 0 20px;
+        align-items: center;
+        text-align: center;
+    }
+   }
+   .disclaimer {
+    font-size: 12px;
+    font-style: italic;
+   }
+}

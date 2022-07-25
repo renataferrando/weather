@@ -1,0 +1,22 @@
+.weather-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+    .icon {
+        width: 60px;
+    }
+    &.--small {
+		font-size: 14px;
+        .icon {
+            width: 40px;
+        }
+	}
+    &.--vertical {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+}

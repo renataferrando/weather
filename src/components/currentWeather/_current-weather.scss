@@ -1,0 +1,45 @@
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .temperature {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        .temperature-text {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .actual-condition {
+        font-size: 24px;
+        text-transform: capitalize;
+        font-weight: bold;
+        }
+        img {
+            width: 70px;
+        }
+    }
+    .details {
+        display: flex;
+        gap: 12px;
+        p:not(:last-child){
+            border-right: solid 1px #ccc;
+            padding: 0 12px;
+        }
+    }
+    .arrow {
+        background: rgba(0,0,0,0.1);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding: 4px;
+        cursor: pointer;
+        .arrow-down{
+            &.--open {
+                transform: rotate(180deg);
+                transition: transform .5s ease;
+            }   
+        }               
+    }
+}
