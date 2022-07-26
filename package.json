@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "homepage":"https://renataferrando.github.io/weather",
+  "homepage":"https://renataferrando.github.io/weatherApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
