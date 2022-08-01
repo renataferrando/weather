@@ -16,7 +16,7 @@ const CurrentWeather = ({ time }) => {
       <p className="last-update">Last update: {time}</p>
       <WeatherBox
         description={weatherData.weather?.[0]?.description}
-        icon={`weather/icons/${weatherData.weather?.[0]?.icon}.png`}
+        icon={`icons/${weatherData.weather?.[0]?.icon}.png`}
         temp={Math.round(weatherData.main?.temp)}
       />
       <div className="details">

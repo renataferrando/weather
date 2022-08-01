@@ -38,7 +38,7 @@ const Forecast = ({ isOpen }) => {
               size="small"
               vertical
               description={item.weather?.[0]?.description}
-              icon={`weather/icons/${item.weather?.[0]?.icon}.png`}
+              icon={`icons/${item.weather?.[0]?.icon}.png`}
               temp={Math.round(item.main?.temp)}
             />
           </div>
@@ -60,7 +60,7 @@ const Forecast = ({ isOpen }) => {
               size="small"
               vertical
               description={item.weather?.[0]?.description}
-              icon={`weather/icons/${item.weather?.[0]?.icon}.png`}
+              icon={`icons/${item.weather?.[0]?.icon}.png`}
               temp={Math.round(item.main?.temp)}
             />
           </div>
