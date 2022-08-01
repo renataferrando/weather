@@ -8,7 +8,9 @@ import "./_home.scss";
 const Home = () => {
   const dispatch = useDispatch();
   const { weatherLoading } = useSelector((state) => state.data);
-  const { latitude, longitude } = usePosition();
+  const { latitude, longitude, timestamp } = usePosition();
+
+  let time = new Date(timestamp).toLocaleTimeString();
 
   useEffect(() => {
     if (latitude && longitude) {
@@ -28,7 +30,7 @@ const Home = () => {
           <p>loading</p>
         ) : (
           <>
-            <CurrentWeather />
+            <CurrentWeather time={time} />
           </>
         )}
       </div>

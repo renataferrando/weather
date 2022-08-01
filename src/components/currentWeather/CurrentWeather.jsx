@@ -5,7 +5,7 @@ import Forecast from "../forecast/Forecast";
 import ArrowDown from "../svg/ArrowDown";
 import WeatherBox from "../weatherBox/WeatherBox";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ time }) => {
   const { weatherData } = useSelector((state) => state.data);
   const [showForecast, setShowForecast] = useState(false);
   return (
@@ -13,9 +13,10 @@ const CurrentWeather = () => {
       <h2>
         {weatherData.name}, <span>{weatherData.sys?.country}</span>
       </h2>
+      <p className="last-update">Last update: {time}</p>
       <WeatherBox
         description={weatherData.weather?.[0]?.description}
-        icon={`icons/${weatherData.weather?.[0]?.icon}.png`}
+        icon={`weather/icons/${weatherData.weather?.[0]?.icon}.png`}
         temp={Math.round(weatherData.main?.temp)}
       />
       <div className="details">

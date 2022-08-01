@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    h2 {
+        margin-bottom: 5px;
+    }
+    .last-update {
+        margin-top: 0;
+        font-size: 12px;
+        color: #ccc;
+    }
     .temperature {
         display: flex;
         gap: 20px;
