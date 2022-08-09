@@ -8,13 +8,15 @@ export const getWeatherData = (params) => {
   ];
   return axios
     .all(endpoints.map((endpoint) => axios.get(endpoint, { params })))
-    .then((res) => res)
-    .catch((err) => console.log(err));
+    .then(
+      axios.spread(({ data: weather }, { data: forecast }) => {
+        return { weather, forecast };
+      })
+    );
 };
 
 export const getCitiesData = (params) => {
   return axios
     .get(`${cityURL}${cityApiKey}`, { params })
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
+    .then((res) => res.data);
 };

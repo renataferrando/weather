@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./_forecast.scss";
 import { useSelector } from "react-redux";
 import WeatherBox from "../weatherBox/WeatherBox";
+import useWindowSize from "../../hooks/useWindowSize";
+import ArrowDown from "../svg/ArrowDown";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const Forecast = ({ isOpen }) => {
+  const daily = useSelector((state) => state.data.forecastDaily);
+  const hourly = useSelector((state) => state.data.forecastHourly);
+  const targetRef = useRef(null);
+  const isVisible = useIntersectionObserver(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    },
+    targetRef
+  );
+
+  const [height, width] = useWindowSize();
+  const isMobile = width < 768;
+
   const WEEK_DAYS = [
     "Monday",
     "Tuesday",
@@ -17,13 +35,6 @@ const Forecast = ({ isOpen }) => {
   const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
     WEEK_DAYS.slice(0, dayInAWeek)
   );
-  const { forecastData } = useSelector((state) => state.data);
-
-  const daily = forecastData.filter((item) => {
-    return new Date(item.dt * 1000).getHours() === 9;
-  });
-
-  const hourly = forecastData.slice(0, 4);
 
   return (
     <div className={!isOpen ? "forecast" : "forecast --show"}>
@@ -38,7 +49,7 @@ const Forecast = ({ isOpen }) => {
               size="small"
               vertical
               description={item.weather?.[0]?.description}
-              icon={`icons/${item.weather?.[0]?.icon}.png`}
+              icon={`weather/icons/${item.weather?.[0]?.icon}.png`}
               temp={Math.round(item.main?.temp)}
             />
           </div>
@@ -47,7 +58,11 @@ const Forecast = ({ isOpen }) => {
       <p>
         <strong>Next 5 days: *</strong>
       </p>
-
+      {isMobile && isOpen && (
+        <ArrowDown
+          className={!isVisible ? "arrow-x --right" : "arrow-x --left"}
+        />
+      )}
       <div className="daily">
         {daily.map((item, i) => (
           <div
@@ -60,11 +75,12 @@ const Forecast = ({ isOpen }) => {
               size="small"
               vertical
               description={item.weather?.[0]?.description}
-              icon={`icons/${item.weather?.[0]?.icon}.png`}
+              icon={`weather/icons/${item.weather?.[0]?.icon}.png`}
               temp={Math.round(item.main?.temp)}
             />
           </div>
         ))}
+        <div className="intersection-containter" ref={targetRef}></div>
       </div>
       <p className="disclaimer">*Estimated conditions at 12pm for each day</p>
     </div>
